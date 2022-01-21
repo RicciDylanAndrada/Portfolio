@@ -7,7 +7,7 @@ function Contact() {
                      <div className="divider mx-auto  bg-orange w-20 h-px  2xl:w-28 "></div>
 
                      <p className="text-xl w-4/6  mx-auto  mobile:text-2xl xl:text-xl 2xl:text-xl">I am always looking for new connections. Whether you have questions or just want to say hi</p>
-                     <a className="button btn btn-success mx-auto w-24 border-orange bg-background text-xs" href="mailto:email@email.de">Say Hello</a>
+                     <a className=" btn hover:bg-orange btn-success mx-auto w-24 border-orange bg-background text-xs" href="mailto:email@email.de">Say Hello</a>
 
                     
                  </div>
