@@ -41,7 +41,7 @@
   background-color: #363535;
   background-blend-mode: soft-light;
 }
-@media (max-width:640px	) {
+@media (max-width:640px	)  {
   .oval {
     width: 190px;
     height: 120px;
@@ -51,7 +51,7 @@
     background-blend-mode: soft-light;
   }
  }
-@media (min-width: 1538px) {
+@media (min-width: 1538px) and (min-height: 1175px) {
   .oval {
     width: 690px;
     height: 570px;
@@ -61,7 +61,7 @@
     background-blend-mode: soft-light;
   }
  }
-@media (min-width: 2536px) {
+@media (min-width: 2536px) and (min-height: 1175px) {
   .oval {
     width: 790px;
     height: 670px;

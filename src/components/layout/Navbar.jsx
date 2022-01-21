@@ -1,13 +1,19 @@
 import {useState} from 'react'
 import { Transition } from "@headlessui/react";
+import { MenuButton } from '../MenuButton.tsx';
+import {motion} from 'framer-motion'
 
 function Navbar({executeScroll,executeScroll2,executeScroll3,executeScroll4,}) {
+  const [isOpen,setOpen] =useState(false)
 
     const[clicked,setClick]=useState(false)
     const handleClick=()=>{
   executeScroll()
     }
-   
+    const handleClickButton=()=>{
+      setClick(!clicked)
+      setOpen(!isOpen)
+}
 
     return (
         <div className=" mobile:grid mobile:grid-cols-7 navbar p-4 w-full mb-12 bg-background text-neutral-content">
@@ -18,13 +24,29 @@ function Navbar({executeScroll,executeScroll2,executeScroll3,executeScroll4,}) {
            
             <div className="flex-1 mobile:hidden  px-2 mx-2">
             <div className="flex justify-center space-x-12 ">
-                   <a className="hover:bg-orange  hover:rounded-md" onClick={handleClick} >About Me</a>
-                   <a className="hover:bg-orange  hover:rounded-md" onClick={executeScroll4} >Skills </a>
+                    <motion.button
+                    whileHover={{scale:1.1}}
+                    >
+                    <a className="hover:text-orange  hover:rounded-md" onClick={handleClick} >About Me</a>
 
-                   <a className="hover:bg-orange  hover:rounded-md" onClick={executeScroll2} >Projects  </a>
+                    </motion.button>
 
-                   <a className="hover:bg-orange  hover:rounded-md" onClick={executeScroll3} >Contact Me </a>
+                    <motion.button
+                    whileHover={{scale:1.1}}
+                    >
+                   <a className="hover:text-orange   hover:rounded-md" onClick={executeScroll4} >Skills </a>
+</motion.button>
+<motion.button
+                    whileHover={{scale:1.1}}
+                    >
+                   <a className="hover:text-orange  hover:rounded-md" onClick={executeScroll2} >Projects  </a>
+</motion.button>
 
+<motion.button
+                    whileHover={{scale:1.1}}
+                    >
+                   <a className="hover:text-orange  hover:rounded-md" onClick={executeScroll3} >Contact Me </a>
+</motion.button>
 
                 </div>
                 
@@ -35,13 +57,12 @@ function Navbar({executeScroll,executeScroll2,executeScroll3,executeScroll4,}) {
         <div className="flex  mobile:col-span-4 justify-end">
                    <a className="text-orange" >Resume</a>
                 </div>
-    <div className="  mobile:visible invisible mobile:place-self-end  mobile:lg:flex">
-    <button onClick={()=>setClick(!clicked)} className="btn btn-square btn-ghost">
-      <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" className="inline-block w-6 h-6 stroke-current">           
-        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 6h16M4 12h16M4 18h16"></path>               
-      </svg>
-    </button>
-    
+    <div className="  mobile:visible invisible grid  place-items-end	  ">
+    <MenuButton
+        isOpen={isOpen}
+onClick={handleClickButton }      />
+
+
   </div> 
   <Transition
           show={clicked}
@@ -56,24 +77,31 @@ function Navbar({executeScroll,executeScroll2,executeScroll3,executeScroll4,}) {
             <div className="sm:hidden w-screen " id="mobile-menu">
               <div ref={ref}  className=" w-screen block px-2 pt-2 pb-3 space-y-1 sm:px-3">
                 <a
-                  href="#"
+                onClick={handleClick}
                   className="hover:bg-gray-700 text-white block px-3 py-2 rounded-md text-base font-medium"
                 >
 About Me                </a>
 
                 <a
-                  href="#"
+                onClick={executeScroll4}
                   className="text-gray-300 hover:bg-gray-700 hover:text-white block px-3 py-2 rounded-md text-base font-medium"
                 >
-                 Work
+                 Skills
                 </a>
 
                 <a
-                  href="#"
+                onClick={executeScroll2}
+                  className="text-gray-300 hover:bg-gray-700 hover:text-white block px-3 py-2 rounded-md text-base font-medium"
+                >
+                  Projects
+                </a>
+                <a
+                onClick={executeScroll3}
                   className="text-gray-300 hover:bg-gray-700 hover:text-white block px-3 py-2 rounded-md text-base font-medium"
                 >
                   Contact Me
                 </a>
+
 
                 
               </div>
