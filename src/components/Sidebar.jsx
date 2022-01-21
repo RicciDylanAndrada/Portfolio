@@ -5,12 +5,12 @@ function Sidebar() {
         <div className="divider divider-vertical  place-self-start	  bg-orange w-px h-3/6">
 
         </div>
-        <div class="place-self-center grid gap-12">
+        <div className="place-self-center grid gap-12">
             <FaGithub  size="20px"  />
             <FaLinkedin size="20px"  />
 
         </div>
-        <div class="divider divider-vertical  place-self-end	  bg-orange w-px h-3/6"></div>
+        <div className="divider divider-vertical  place-self-end	  bg-orange w-px h-3/6"></div>
             
         </div>
     )

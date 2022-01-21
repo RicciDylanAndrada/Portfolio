@@ -5,14 +5,28 @@ import AboutMe from "./AboutMe"
 import Projects from "./Projects"
 import Contact from "./Contact"
 import Footer from "./Footer"
+import {useRef} from 'react'
+
 
 function Home() {
+    const AboutMee=useRef(null)
+    const Projectss=useRef(null)
+    const ContactMe=useRef(null)
+    const Skillss=useRef(null)
+
+
+    const executeScroll = () => AboutMee.current.scrollIntoView({behavior:"smooth"})    
+    const executeScroll2 = () => Projectss.current.scrollIntoView({behavior:"smooth"})       
+    const executeScroll3 = () => ContactMe.current.scrollIntoView({behavior:"smooth"})     
+    const executeScroll4 = () => Skillss.current.scrollIntoView({behavior:"smooth"})    
+
+
     return (
         <div className="h-screen">
-        <Navbar/>
+        <Navbar executeScroll={executeScroll} executeScroll2={executeScroll2}executeScroll3={executeScroll3} executeScroll4={executeScroll4} />
      
         <section className="grid w-full h-screen grid-rows-2	 mobile:h-screen  mobile:p-5   mobile:items-center  mobile:flex-col " >
-        <div class="grid mobile:flex  	 h-100 w-full md:grid-cols-2 mobile:flex-col-reverse  place-items-center">
+        <div className="grid mobile:flex  	 h-100 w-full md:grid-cols-2 mobile:flex-col-reverse  place-items-center">
                 <div className="grid gap-3  text-left mobile:gap-4  ">
                     <h2 className="text-4xl mobile:text-2xl xl:text-4xl 2xl:text-5xl">Hello</h2>
                     <h2 className="text-6xl mobile:text-4xl  xl:text-6xl 2xl:text-8xl ">My Name Is Ricci,</h2>
@@ -30,7 +44,7 @@ function Home() {
 
 
 
-        <div class=" grid grid-rows-2 mobile:text-center  place-items-center   h-4/6">
+        <div className=" grid grid-rows-2 mobile:text-center  place-items-center   h-4/6">
         
                     <div className=" place-self-center grid   h-full " > 
 
@@ -38,10 +52,10 @@ function Home() {
                         With a passion of building digital experiences on the web, I continue to always learn and hone my craft.</h1>
                         
                     </div>
-                    <div class="grid  place-items-center">
-                        <button class="btn btn-square btn-ghost arrow">
+                    <div className="grid  place-items-center">
+                        <button className="btn btn-square btn-ghost arrow">
                                 <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" className="inline-block w-6 h-6 stroke-current text-orange">            
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18"></path>              
+                                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M10 19l-7-7m0 0l7-7m-7 7h18"></path>              
                                 </svg>
                         </button>
                     </div>
@@ -50,10 +64,12 @@ function Home() {
         </section>
 
         <div className="mobile:grid mobile:gap-20 grid gap-60">
-        <AboutMe/>
-        <Skills/>
-        <Projects/>
-        <Contact/>
+        <div  ref={AboutMee} className="">  <AboutMe /></div>
+        <div ref={Skillss} className="">        <Skills/></div>
+        <div ref={Projectss} className="">        <Projects/></div>
+        <div ref={ContactMe} className="">               <Contact/></div>
+
+        
         <Footer/>
 
 

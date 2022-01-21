@@ -5,7 +5,7 @@ function App() {
     <div className="App text-white font-Karla   flex ">
     
     
-<div class="flex grow w-full h-screen flex-col">
+<div className="flex grow w-full h-screen flex-col">
 <Home/>
 
 </div>
