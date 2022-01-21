@@ -9,7 +9,27 @@
   text-orientation: upright;
   transform: rotate(270deg);
 
+
 }
+.project-description, .project-image{
+  grid-row: 1/2;
+}
+.project-description-right, .project-image-right{
+  grid-row: 1/2;
+}
+.project-image{
+  grid-column: 1/6;
+}
+.project-description{
+  grid-column: 5/-1;
+}
+.project-image-right{
+  grid-column: -1/-6;
+}
+.project-description-right{
+  grid-column: 5/1;
+}
+
 .oval {
   width: 370px;
   height: 270px;

@@ -15,7 +15,8 @@ module.exports = {
       },
       colors:{
         'orange':"#FFA500",
-        'background':"#202023"
+        'background':"#202023",
+        "overlayBox":"#2F2F34"
       },
       screens: {
         'mobile': {'max': '640px'},
