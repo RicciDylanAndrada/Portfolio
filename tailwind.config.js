@@ -1,33 +1,68 @@
+/** @type {import('tailwindcss').Config} */
 module.exports = {
-  daisyui: {
-    themes: false,
-  },
+  darkMode: ["class"],
   content: [
-    "./src/**/*.{js,jsx,ts,tsx}",
-
+    "./app/**/*.{js,ts,jsx,tsx,mdx}",
+    "./components/**/*.{js,ts,jsx,tsx,mdx}",
   ],
   theme: {
-    
     extend: {
-      fontFamily:{
-        'Karla':['Karla','sans-serif'],
-        
+      fontFamily: {
+        sans: ['Inter', 'system-ui', 'sans-serif'],
+        mono: ['JetBrains Mono Variable', 'monospace'],
       },
-      colors:{
-        'orange':"#FFA500",
-        'background':"#202023",
-        "overlayBox":"#2F2F34"
+      colors: {
+        coral: '#F4A261',
+        charcoal: '#2B2929',
+        offwhite: '#E8E6E3',
+        taupe: '#D8C7B8',
+        gold: '#E29D51',
+        mocha: '#8B7355',
+        'muted-grey': '#6E6E73',
+        background: 'hsl(var(--background))',
+        foreground: 'hsl(var(--foreground))',
+        card: {
+          DEFAULT: 'hsl(var(--card))',
+          foreground: 'hsl(var(--card-foreground))',
+        },
+        popover: {
+          DEFAULT: 'hsl(var(--popover))',
+          foreground: 'hsl(var(--popover-foreground))',
+        },
+        primary: {
+          DEFAULT: 'hsl(var(--primary))',
+          foreground: 'hsl(var(--primary-foreground))',
+        },
+        secondary: {
+          DEFAULT: 'hsl(var(--secondary))',
+          foreground: 'hsl(var(--secondary-foreground))',
+        },
+        muted: {
+          DEFAULT: 'hsl(var(--muted))',
+          foreground: 'hsl(var(--muted-foreground))',
+        },
+        accent: {
+          DEFAULT: 'hsl(var(--accent))',
+          foreground: 'hsl(var(--accent-foreground))',
+        },
+        destructive: {
+          DEFAULT: 'hsl(var(--destructive))',
+          foreground: 'hsl(var(--destructive-foreground))',
+        },
+        border: 'hsl(var(--border))',
+        input: 'hsl(var(--input))',
+        ring: 'hsl(var(--ring))',
       },
-      screens: {
-        'mobile': {'max': '640px'},
-        // => @media (min-width: 640px) { ... }
-  
-        
+      boxShadow: {
+        'card': '0 12px 80px rgba(0,0,0,0.09)',
+        'card-hover': '0 20px 100px rgba(0,0,0,0.15)',
+      },
+      borderRadius: {
+        lg: 'var(--radius)',
+        md: 'calc(var(--radius) - 2px)',
+        sm: 'calc(var(--radius) - 4px)',
       },
     },
   },
-  plugins: [
-    require('daisyui'),
-  
-  ],
+  plugins: [require("tailwindcss-animate")],
 }
